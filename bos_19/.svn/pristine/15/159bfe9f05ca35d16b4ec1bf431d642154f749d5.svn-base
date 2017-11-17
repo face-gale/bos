@@ -1,0 +1,23 @@
+package com.itheima.bos.service.impl;
+
+import java.util.Date;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.itheima.bos.dao.WorkordermanageDao;
+import com.itheima.bos.domain.Workordermanage;
+import com.itheima.bos.service.WorkordermanageService;
+@Service
+@Transactional
+public class WorkordermanageServiceImpl implements WorkordermanageService {
+	@Resource
+	private WorkordermanageDao workordermanageDao;
+
+	public void save(Workordermanage model) {
+		model.setUpdatetime(new Date());
+		workordermanageDao.save(model);
+	}
+}
